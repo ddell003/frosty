@@ -28,3 +28,13 @@ Route::get('/menu', function () {
     //dd($sections);
     return view('menu', $data);
 });
+
+Route::get('/order', function () {
+
+    $data['sections'] = $sections = MenuSection::get();
+    //dd($sections);
+    return view('order', $data);
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
