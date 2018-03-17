@@ -7,10 +7,10 @@ We are making a web app for a restaurnt to use. Users will be able to see a menu
 
 ### Schema
 
-menu_sections
-------------- 
-id
-name 
+menu_sections |
+------------- |
+id            |
+name          |
 
 menu_items
 ------------- 
