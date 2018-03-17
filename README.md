@@ -2,6 +2,40 @@
 
 https://laravel.com/docs/5.6/installation
 
+## About
+We are making a web app for a restaurnt to use. Users will be able to see a menu and place a order if they are logged in. User can register themself and create an account. Admin user will be able to edit menu items and see orders and mark orders as done
+
+### Schema
+
+menu_sections
+------------- 
+id
+name 
+
+menu_items
+------------- 
+id
+name 
+description
+price
+section_id
+
+orders
+------------- 
+id
+user_id
+total
+status
+
+order_items
+------------- 
+id
+order_id
+user_id
+
+
+
+
 ## Set up
 
 1. Once you clone down the project look to see if you have .env if you dont run 
@@ -25,7 +59,7 @@ We then make a model request to get the menu sections and assign it to the array
 
 ### Models (singular of the tabel it references ie table Orders model Order)
 
-Models interact with the database. We have a table called menu_sections, so we make a model called MenuSection. If you say MenuSection::get() a database call will be made which will go out and get all menu sections. We also have a tabel called menu items which has a foreign key to menu_sections. We define this relationship in the model MenuSection. We make a function called items. Itmes relate to the section through the section_id on the menu_items table. 
+Models interact with the database. We have a table called menu_sections, so we make a model called MenuSection. If you say MenuSection::get() a database call will be made which will go out and get all menu sections. We also have a tabel called menu items which has a foreign key to menu_sections. We define this relationship in the model MenuSection. We make a function called items. Items relate to the section through the section_id on the menu_items table. 
 
 ### Views
 
@@ -33,11 +67,11 @@ Views contain the html we will render for the user. We can utilized the data pas
 
 ### Database
 
-For database we are using a sqlight database. To see the structure of the database you can go to the command line and run php artisan tinker. Then type DB::select('SELECT NAME FROM sqlite_master WHERE type="table"');
+For database we are using a sqlight database. To see the structure of the database you can go to the command line and run `php artisan tinker`. Then type `DB::select('SELECT NAME FROM sqlite_master WHERE type="table"');`
 
 #### Make new tabel with model and controller
 
-To make a new table with a model and controller type into the command line: php artisan make:model OrderItem -mc.
+To make a new table with a model and controller type into the command line: `php artisan make:model OrderItem -mc`.
 This tells artisan (composer library, composer i a package library) to make me a model called OrderItem and a migration to create a tabel called order_items
 
 ## To Do
