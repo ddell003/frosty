@@ -4,7 +4,7 @@ https://laravel.com/docs/5.6/installation
 
 ## Set up
 
-1.Once you clone down the project look to see if you have .env if you dont run 
+1. Once you clone down the project look to see if you have .env if you dont run 
 `cp .env-example .env`
 2. run composer install
 3. run php artian migrate
