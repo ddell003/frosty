@@ -1,5 +1,7 @@
+<!-- Lets use the html skeleton we made -->
 @extends('main')
 
+<!-- defining html to be inserted into the content section of the skeleton -->
 @section('content')
 
 <style>
@@ -50,18 +52,18 @@
 
 </style>
 <br><br>
-<div class="menu-body">
- 
-    
+
 
 <div class="menu-body">
 
+    <!-- loop over all the menu sections -->
    @foreach($sections as $section)
 
+     <div class="menu-section">
 
-      <div class="menu-section">
-         <h2 class="menu-section-title">{{$section->name}}</h2>
+        <h2 class="menu-section-title">{{$section->name}}</h2>
 
+         <!-- Lets loop over all the items a section has-->
          @foreach($section->items as $item)
          <!-- Item starts -->
          <div class="menu-item">
@@ -80,10 +82,7 @@
       </div>
 
    @endforeach
-   <!-- Section starts: Appetizers -->
 
-
-   <!-- Section ends: Drinks -->
 </div>
 
     

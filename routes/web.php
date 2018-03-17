@@ -24,8 +24,13 @@ Route::get('/welcome', function () {
 
 Route::get('/menu', function () {
 
-    $data['sections'] = $sections = MenuSection::get();
-    //dd($sections);
+    //make an array
+    $data = [];
+
+    //make a key called sections, make a model request to get all sections from the database
+    $data['sections'] = MenuSection::get();
+
+    //we made a view called menu.blade.php in resources/views we pass the variable data to be used in the view
     return view('menu', $data);
 });
 
