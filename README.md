@@ -1,10 +1,21 @@
 # Frosty - a laravel web application
 
+https://laravel.com/docs/5.6/installation
+
+## Set up
+
+1.Once you clone down the project look to see if you have .env if you dont run 
+`cp .env-example .env`
+2. run composer install
+3. run php artian migrate
+4. php artisan key:generate
+5. if you have mac you can run `php artisan serve`
+
 ## How it works
 
 ### Routing
 
-if you look in routes/web.phpyou will all the endpoints available for the application. Routes have restful endpoints (GET PUT POST DELETE).
+if you look in routes/web.php you will see all the endpoints available for the application. Routes have restful endpoints (GET PUT POST DELETE).
 
 Ex. get/menu
 
@@ -24,7 +35,13 @@ Views contain the html we will render for the user. We can utilized the data pas
 
 For database we are using a sqlight database. To see the structure of the database you can go to the command line and run php artisan tinker. Then type DB::select('SELECT NAME FROM sqlite_master WHERE type="table"');
 
+#### Make new tabel with model and controller
+
 To make a new table with a model and controller type into the command line: php artisan make:model OrderItem -mc.
 This tells artisan (composer library, composer i a package library) to make me a model called OrderItem and a migration to create a tabel called order_items
+
+## To Do
+
+Set up view for order
 
 
