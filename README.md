@@ -12,26 +12,26 @@ menu_sections |
 id            |
 name          |
 
-menu_items
-------------- 
-id
-name 
-description
-price
-section_id
+menu_items    |
+------------- |
+id            |
+name          |
+description   |
+price         |
+section_id    |
 
-orders
-------------- 
-id
-user_id
-total
-status
+orders        |
+------------- |
+id            |
+user_id       |
+total         |
+status        |
 
-order_items
-------------- 
-id
-order_id
-user_id
+order_items   |
+------------- |
+id            |
+order_id      |
+user_id       |
 
 
 
