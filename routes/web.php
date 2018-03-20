@@ -11,7 +11,12 @@
 |
 */
 
+use App\MenuItem;
 use App\MenuSection;
+
+/**
+ * These are all the end points for this project. From here we tell the server what views to render to the user
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +24,14 @@ Route::get('/', function () {
 
 Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/reviews', function () {
+    return view('reviews');
 });
 
 
@@ -36,10 +49,24 @@ Route::get('/menu', function () {
 
 Route::get('/order', function () {
 
-    $data['sections'] = $sections = MenuSection::get();
-    //dd($sections);
+    //make an array and add a key called items, make a model request to get all menu items from the database
+    $data['items'] = $items = MenuItem::get();
+
+    $itemPrice = [];
+    foreach($items as $item){
+        $itemPrice[$item->id] = $item->price;
+    }
+
+    $data['itemPrice'] = $itemPrice;
     return view('order', $data);
 });
+
+Route::post('/order', function () {
+
+    dd('in post for orders');
+    return view('reviews');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
