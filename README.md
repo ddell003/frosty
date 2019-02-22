@@ -44,6 +44,15 @@ user_id       |
 3. run php artian migrate
 4. php artisan key:generate
 5. if you have mac you can run `php artisan serve`
+6. Create Users: in your terminal run:
+```
+php artisan user:create --first_name=Parker --last_name=Dell --email=parkerdell94@gmail.com --password=password --user_type=1
+```
+7. Create Random Users:
+```
+php artisan user:random --count=10
+
+```
 
 ## How it works
 

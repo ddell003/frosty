@@ -20,9 +20,11 @@
   <body>
     @include('template.navbar')
 
+      <!-- Pull in content -->
+      <div class="main">
+        @yield('content')
+      </div>
 
-  
-      @yield('content')
     
 
 
