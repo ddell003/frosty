@@ -2,22 +2,26 @@
     <div class="flex-center position-ref full-height">
 
         <div class="content">
-            <div class="title m-b-md">Users </div>
 
             <b-card no-body>
-                <b-tabs card>
+                <h2 slot="header" class="mb-0">Users</h2>
+                <b-tabs card v-model="tabIndex">
+
                     <!-- Render Tabs, supply a unique `key` to each tab -->
                     <b-tab v-for="type in types" :key="`dyntab-${type.id}`" :title="`${type.name}`">
-                        Tab Contents {{ type.name }}
 
-                        <div>
-                            <b-table striped hover :items="items" />
-                        </div>
+
+                        <user-table :type="type" :tab="(tabIndex + 1)" :refreshCount="refreshCount"></user-table>
 
                     </b-tab>
 
                 </b-tabs>
+                <b-card-footer>
+                    <a class="btn btn-info btn-sm pull-right" @click="refreshUsers()">Refresh Users</a>
+                </b-card-footer>
             </b-card>
+
+
         </div>
 
     </div>
@@ -26,25 +30,29 @@
 <script>
 
     export default {
-        props : ['title', 'author', 'types'],
+        props : ['types'],
+        methods:{
+            activeTab(id){
+                if((this.tabIndex + 1) == id){
+                    this.active = true;
+                    return true;
+                }
+                else{
+                    this.active = false;
+                    return false;
+                }
+
+            },
+            refreshUsers(){
+                console.log('refresh users');
+
+                this.refreshCount = this.refreshCount + 1;
+            }
+        },
         data() {
             return {
-                items: [
-                    { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-                    { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-                    { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-                    { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-                ],
-                tabs: [
-                    1,2,3
-                ],
-                types2:[
-                    {id: 1, name:'Website Administrator'},
-                    {id: 2, name:'Clients'},
-                    {id: 3, name:'Customers'},
-                    {id: 4, name:'Employees'},
-
-                ],
+                tabIndex: 0,
+                refreshCount:0,
 
             }
         }
@@ -84,7 +92,7 @@
         top: 18px;
     }
     .content {
-        text-align: center;
+
     }
     .m-b-md {
         margin-bottom: 30px;

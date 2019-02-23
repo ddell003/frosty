@@ -29,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scopeByType($query, $type_id)
+    {
+        $query->where('type_id', $type_id);
+    }
 }

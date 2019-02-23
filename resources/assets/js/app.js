@@ -19,10 +19,16 @@ window.Vue = require('vue');
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import axios from 'axios';
+
+window.axios.defaults.headers.common = {
+    'X-Requested-With': 'XMLHttpRequest',
+    'X-CSRF-TOKEN': window.csrf_token
+};
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('user-list-component', require('./components/UserListComponent.vue'));
 Vue.component('user', require('./components/User.vue'));
+Vue.component('user-table', require('./components/UserTable.vue'));
 Vue.use(BootstrapVue);
 
 const app = new Vue({

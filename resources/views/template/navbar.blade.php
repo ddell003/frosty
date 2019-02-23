@@ -14,11 +14,14 @@
         <li class="nav-item">
         <a class="nav-link" href="{{URL::to('menu')}}">Menue</a>
         </li>
-        <li class="nav-item">
+       <?php /* <li class="nav-item">
         <a class="nav-link" href="{{URL::to('about')}}">About</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="{{URL::to('reviews')}}">Reviews</a>
+        </li>*/ ?>
+        <li class="nav-item">
+          <a class="nav-link" href="{{URL::to('users')}}">Users</a>
         </li>
         @guest
           <li><a class="nav-link btn btn-primary" href="{{ route('login') }}">Log in To place a Order!</a></li>

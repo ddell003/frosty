@@ -10,14 +10,14 @@
 
 @section('content')
 
-    <br><br><br><br>
-
     <div id="app">
-        <user :title="'{{$title}}'" :author="{{$author}}" :types="{{$types}}"></user>
+        <user :types="{{$types}}"></user>
     </div>
     <script type="text/javascript" src="js/app.js"></script>
 
-
+    <script type="text/javascript">
+        window.csrf_token = "{{ csrf_token() }}"
+    </script>
 
 
 @endsection
